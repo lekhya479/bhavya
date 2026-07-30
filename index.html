@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bhavya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #130702, #f14fc3, #0f0101);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #090e03;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            z-index: 10;
+            max-width: 600px;
+            width: 100%;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            color: #ff758c;
+            animation: bounce 2s infinite;
+            text-shadow: 0 0 15px rgba(17, 7, 9, 0.6);
+        }
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #ff7eb3;
+            margin-bottom: 30px;
+        }
+        /* Gift Box Styles */
+        .gift-box {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+        .box-body {
+            position: absolute;
+            bottom: 0;
+            width: 150px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 25px rgba(255, 65, 108, 0.5);
+        }
+        .box-lid {
+            position: absolute;
+            top: 20px;
+            left: -5px;
+            width: 160px;
+            height: 30px;
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.5s ease, top 0.5s ease;
+        }
+        .ribbon-vertical {
+            position: absolute;
+            width: 30px;
+            height: 120px;
+            background: #ffd700;
+            left: 60px;
+            bottom: 0;
+        }
+        .box-lid .ribbon-vertical {
+            height: 30px;
+            top: 0;
+            bottom: auto;
+        }
+        .ribbon-horizontal {
+            position: absolute;
+            width: 150px;
+            height: 30px;
+            background: #ffd700;
+            top: 45px;
+        }
+        /* Open state for gift box */
+        .gift-box.open .box-lid {
+            transform: translateY(-60px) rotate(-15deg);
+        }
+        /* Surprise Note */
+        .surprise-note {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: all 0.6s ease;
+        }
+        .surprise-note.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .surprise-note h2 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .surprise-note p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #f1f1f1;
+        }
+       pic {
+            width:100%;
+            padding:px;
+            box-shadow:0 0 10 black;
+            margin:auto;
+        }
+        container{
+            padding: 10px;
+            margin:auto;
+
+
+        }
+            table{
+            display: flex;
+            justify-content :center;
+            padding: 10%;
+            box-shadow: 0 0 10px black;
+            width: 100;
+
+        }
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        /* Responsive tweaks */
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            p.subtitle { font-size: 1rem; }
+            .gift-box { width: 120px; height: 120px; }
+            .box-body { width: 120px; height: 90px; }
+            .box-lid { width: 130px; height: 25px; left: -5px; }
+            .ribbon-vertical { width: 24px; height: 90px; left: 48px; }
+            .box-lid .ribbon-vertical { height: 25px; }
+            .ribbon-horizontal { width: 120px; height: 24px; top: 35px; }
+        }
+    
+    </style>
+</head>
+<body>
+     <div class="container">
+        <h1>Happy Birthday, Bhavya! 🎉</h1>
+        <p class="subtitle">Tap the gift box below to reveal your surprise note!</p>
+        
+
+        <!-- Interactive Gift Box -->
+        <div class="gift-box" id="giftBox" onclick="openGift()">
+            <div class="box-lid">
+                <div class="ribbon-vertical"></div>
+            </div>
+            <div class="box-body">
+                <div class="ribbon-vertical"></div>
+                <div class="ribbon-horizontal"></div>
+            </div>
+        </div>
+        </div>
+        <div class="container 2">
+        <!-- Hidden Surprise Note -->
+        <div class="surprise-note" id="surpriseNote">
+            <h2>To My Favorite Person 💖</h2>
+            <p>Thank you for always being there through thick and thin, for the endless laughs, and for making life so much brighter. I am so lucky to call you my best friend. May this year bring you as much happiness as you give to everyone else! May all your biggest dreams come true this year.</p>
+        </div>
+        
+    </div>
+    <script>
+        function openGift() {
+            const giftBox = document.getElementById('giftBox');
+            const surpriseNote = document.getElementById('surpriseNote');
+            
+            giftBox.classList.toggle('open');
+            surpriseNote.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
